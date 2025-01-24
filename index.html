@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Couscous Royal</title>
+    <title>Keftaji</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,24 +18,17 @@
         }
         header {
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Arrange les éléments en colonne */
             justify-content: center;
-            align-items: center;
+            align-items: center; /* Centre les éléments horizontalement */
             background-color: #bdc9cc;
             color: Black;
             border-radius: 8px;
             padding: 10px;
-            text-align: center;
-            position: relative;
-        }
-        header .logo {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 100px;
+            text-align: center; /* Centre le texte */
         }
         header .flags {
-            margin-top: 10px;
+            margin-top: 10px; /* Ajoute un espace entre le titre et les drapeaux */
         }
         header h1 {
             margin: 0;
@@ -46,48 +39,20 @@
             margin-left: 10px;
             border-radius: 50%;
             cursor: pointer;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .flags img:hover {
-            transform: scale(1.5);
         }
         .dish-image {
-            display: block;
+            display: block;  /* Ensures the image is treated as a block element */
             width: 60%;
             max-width: 700px;
-            margin: 0 auto;
+            margin: 0 auto;  /* This centers the image horizontally */
             border-radius: 20px;
-            transition: transform 0.5s ease-in-out;
-        }
-        .dish-image:hover {
-            transform: scale(1.01); rotate(5deg); /* Agrandissement et légère rotation */
-            opacity: 0.5; /* Réduction légère de l'opacité */
-        
-        }
-        .logo {
-            display: block;
-            width: 10%;
-            max-width: 100px;
-            margin: 0 auto;
-            border-radius: 20px;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .logo:hover {
-            transform: scale(1.1);
-
+            border: 5px solid #E70013ff; /* Bordure couleur tunisienne */
         }
         .overview, .calories, .components, .allergies, .history, .serving {
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .overview:hover {
-            transform: scale(1.01);
         }
         .overview {
             background-color: #f8f8f8;
@@ -126,142 +91,174 @@
     </style>
     <script>
         function switchLanguage(language) {
-            const translations = {
-                'fr': {
-                    title: 'Couscous Royal',
-                    overview: 'Présentation',
-                    calories: 'Calories',
-                    components: 'Composants principaux',
-                    allergies: 'Allergènes',
-                    history: 'Histoire',
-                    serving: 'Présentation'
-                },
-                'en': {
-                    title: 'Royal Couscous',
-                    overview: 'Overview',
-                    calories: 'Calories',
-                    components: 'Main Ingredients',
-                    allergies: 'Allergens',
-                    history: 'History',
-                    serving: 'Serving'
-                },
-                'es': {
-                    title: 'Cuscús Real',
-                    overview: 'Descripción',
-                    calories: 'Calorías',
-                    components: 'Ingredientes principales',
-                    allergies: 'Alergias',
-                    history: 'Historia',
-                    serving: 'Servicio'
-                },
-                'de': {
-                    title: 'Königlicher Couscous',
-                    overview: 'Überblick',
-                    calories: 'Kalorien',
-                    components: 'Hauptzutaten',
-                    allergies: 'Allergene',
-                    history: 'Geschichte',
-                    serving: 'Servieren'
-                },
-                'it': {
-                    title: 'Couscous Reale',
-                    overview: 'Panoramica',
-                    calories: 'Calorie',
-                    components: 'Ingredienti principali',
-                    allergies: 'Allergeni',
-                    history: 'Storia',
-                    serving: 'Servizio'
-                },
-                'pl': {
-                    title: 'Królewski Kus-kus',
-                    overview: 'Przegląd',
-                    calories: 'Kalorie',
-                    components: 'Główne składniki',
-                    allergies: 'Alergeny',
-                    history: 'Historia',
-                    serving: 'Serwowanie'
-                },
-                'ar': {
-                    title: 'كسكسي ملكي',
-                    overview: 'نظرة عامة',
-                    calories: 'السعرات الحرارية',
-                    components: 'المكونات الرئيسية',
-                    allergies: 'المواد المثيرة للحساسية',
-                    history: 'التاريخ',
-                    serving: 'طريقة التقديم'
-                }
+            const texts = {
+                'fr': 'Keftaji',
+                'en': 'Keftaji',
+                'es': 'Keftaji',
+                'de': 'Keftaji',
+                'it': 'Keftaji',
+                'pl': 'Keftaji',
+                'ar': 'كفتاجي'
             };
 
-            const content = translations[language];
-            document.querySelector('header h1').textContent = content.title;
-            document.querySelector('.overview h2').textContent = content.overview;
-            document.querySelector('.calories h2').textContent = content.calories;
-            document.querySelector('.components h2').textContent = content.components;
-            document.querySelector('.allergies h2').textContent = content.allergies;
-            document.querySelector('.history h2').textContent = content.history;
-            document.querySelector('.serving h2').textContent = content.serving;
+            const overviews = {
+                'fr': 'Le Keftaji est un plat composé principalement de légumes, épicé et pimenté. Les légumes sont cuits un à un en friture, puis mélangés ensemble et assaisonnés d’harissa et de kerouia (carvi moulu). Ce plat peut être servi en garniture d’une viande grillée ou de saucisses, traditionnellement du foie ou des merguez.',
+                'en': 'Keftaji is a dish mainly composed of vegetables, spicy and hot. The vegetables are fried one by one, then mixed together and seasoned with harissa and kerouia (ground caraway). This dish can be served as a side with grilled meat or sausages, traditionally liver or merguez.',
+                'es': 'El Keftaji es un plato compuesto principalmente de verduras, picante y especiado. Las verduras se fríen una a una, luego se mezclan y se sazonan con harissa y kerouia (comino molido). Este plato se puede servir como guarnición de carne a la parrilla o salchichas, tradicionalmente hígado o merguez.',
+                'de': 'Keftaji ist ein Gericht, das hauptsächlich aus Gemüse besteht, würzig und scharf. Das Gemüse wird einzeln frittiert, dann vermischt und mit Harissa und Kerouia (gemahlener Kümmel) gewürzt. Dieses Gericht kann als Beilage zu gegrilltem Fleisch oder Würstchen serviert werden, traditionell Leber oder Merguez.',
+                'it': 'Il Keftaji è un piatto composto principalmente da verdure, speziato e piccante. Le verdure vengono fritte una alla volta, poi mescolate e condite con harissa e kerouia (cumino macinato). Questo piatto può essere servito come contorno a carne grigliata o salsicce, tradizionalmente fegato o merguez.',
+                'pl': 'Keftaji to danie składające się głównie z warzyw, pikantne i ostre. Warzywa są smażone jedno po drugim, następnie mieszane i przyprawiane harissą oraz kerouią (mielonym kminkiem). To danie można podawać jako dodatek do grillowanego mięsa lub kiełbasek, tradycyjnie wątroby lub merguez.',
+                'ar': 'كفتاجي هو طبق يتكون أساسًا من الخضروات، حار ومتبل. يتم قلي الخضار واحدة تلو الأخرى، ثم تخلط معًا وتتبل بالهريسة والكرويا (كمون مطحون). يمكن تقديم هذا الطبق كجانب من اللحم المشوي أو النقانق، تقليديًا الكبد أو المرقاز.'
+            };
+
+            const calories = {
+                'fr': 'Environ 400 calories par portion...',
+                'en': 'About 400 calories per serving...',
+                'es': 'Alrededor de 400 calorías por porción...',
+                'de': 'Etwa 400 Kalorien pro Portion...',
+                'it': 'Circa 400 calorie per porzione...',
+                'pl': 'Około 400 kalorii na porcję...',
+                'ar': 'حوالي 400 سعرة حرارية لكل حصة...'
+            };
+
+            const components = {
+                'fr': 'Composants principaux : légumes variés, harissa, kerouia, assaisonnements.',
+                'en': 'Main ingredients: assorted vegetables, harissa, kerouia, seasonings.',
+                'es': 'Ingredientes principales: verduras variadas, harissa, kerouia, especias.',
+                'de': 'Hauptzutaten: verschiedene Gemüse, Harissa, Kerouia, Gewürze.',
+                'it': 'Ingredienti principali: verdure assortite, harissa, kerouia, condimenti.',
+                'pl': 'Główne składniki: mieszane warzywa, harissa, kerouia, przyprawy.',
+                'ar': 'المكونات الرئيسية: خضروات متنوعة، هريسة، كرويا، توابل.'
+            };
+
+            const allergies = {
+                'fr': 'Allergènes : Contient des traces de gluten, peut contenir des noix.',
+                'en': 'Allergens: Contains traces of gluten, may contain nuts.',
+                'es': 'Alergénicos: Contiene trazas de gluten, puede contener frutos secos.',
+                'de': 'Allergene: Enthält Spuren von Gluten, kann Nüsse enthalten.',
+                'it': 'Allergeni: Contiene tracce di glutine, può contenere frutta secca.',
+                'pl': 'Alergeny: Zawiera śladowe ilości glutenu, może zawierać orzechy.',
+                'ar': 'المواد المثيرة للحساسية: يحتوي على آثار من الجلوتين، قد يحتوي على مكسرات.'
+            };
+
+            const history = {
+                'fr': 'Le Keftaji est un plat populaire en Tunisie, souvent préparé lors des grandes occasions et des fêtes.',
+                'en': 'Keftaji is a popular dish in Tunisia, often prepared during special occasions and celebrations.',
+                'es': 'El Keftaji es un plato popular en Túnez, a menudo preparado durante ocasiones especiales y celebraciones.',
+                'de': 'Keftaji ist ein beliebtes Gericht in Tunesien, das oft zu besonderen Anlässen und Feiern zubereitet wird.',
+                'it': 'Il Keftaji è un piatto popolare in Tunisia, spesso preparato durante occasioni speciali e celebrazioni.',
+                'pl': 'Keftaji to popularne danie w Tunezji, często przygotowywane na specjalne okazje i święta.',
+                'ar': 'كفتاجي هو طبق شائع في تونس، وغالبًا ما يتم تحضيره في المناسبات الخاصة والاحتفالات.'
+            };
+
+            const serving = {
+                'fr': 'Le Keftaji est généralement servi chaud avec du pain et une sauce piquante.',
+                'en': 'Keftaji is usually served hot with bread and spicy sauce.',
+                'es': 'El Keftaji generalmente se sirve caliente con pan y salsa picante.',
+                'de': 'Keftaji wird normalerweise heiß mit Brot und scharfer Sauce serviert.',
+                'it': 'Keftaji viene solitamente servito caldo con pane e salsa piccante.',
+                'pl': 'Keftaji zazwyczaj podaje się na gorąco z chlebem i ostrym sosem.',
+                'ar': 'تُقدم كفتاجي عادةً ساخنة مع الخبز وصوص حار.'
+            };
+
+            // Switch content based on the selected language
+            document.querySelector('.container h1').textContent = texts[language];
+            document.querySelector('.overview h2').textContent = language === 'en' ? 'Overview' : 
+                (language === 'es' ? 'Visión general' : 
+                (language === 'de' ? 'Übersicht' : 
+                (language === 'it' ? 'Panoramica' : 
+                (language === 'pl' ? 'Przegląd' : 
+                (language === 'ar' ? 'نظرة عامة' : 'Présentation')))));
+            document.querySelector('.calories h2').textContent = language === 'en' ? 'Calories' : 
+                (language === 'es' ? 'Calorías' : 
+                (language === 'de' ? 'Kalorien' : 
+                (language === 'it' ? 'Calorie' : 
+                (language === 'pl' ? 'Kalorie' : 
+                (language === 'ar' ? 'السعرات الحرارية' : 'Calories')))));
+            document.querySelector('.components h2').textContent = language === 'en' ? 'Ingredients' :
+                (language === 'es' ? 'Ingredientes' : 
+                (language === 'de' ? 'Zutaten' : 
+                (language === 'it' ? 'Ingredienti' : 
+                (language === 'pl' ? 'Składniki' : 
+                (language === 'ar' ? 'المكونات' : 'Ingrédients')))));
+            document.querySelector('.allergies h2').textContent = language === 'en' ? 'Allergens' : 
+                (language === 'es' ? 'Alergénicos' : 
+                (language === 'de' ? 'Allergene' : 
+                (language === 'it' ? 'Allergeni' : 
+                (language === 'pl' ? 'Alergeny' : 
+                (language === 'ar' ? 'المواد المثيرة للحساسية' : 'Allergènes')))));
+            document.querySelector('.history h2').textContent = language === 'en' ? 'History' : 
+                (language === 'es' ? 'Historia' : 
+                (language === 'de' ? 'Geschichte' : 
+                (language === 'it' ? 'Storia' : 
+                (language === 'pl' ? 'Historia' : 
+                (language === 'ar' ? 'التاريخ' : 'Historique')))));
+            document.querySelector('.serving h2').textContent = language === 'en' ? 'Serving' : 
+                (language === 'es' ? 'Servicio' : 
+                (language === 'de' ? 'Servieren' : 
+                (language === 'it' ? 'Servire' : 
+                (language === 'pl' ? 'Serwowanie' : 
+                (language === 'ar' ? 'طريقة التقديم' : 'Service')))));
+
+            document.querySelector('.overview p').textContent = overviews[language];
+            document.querySelector('.calories p').textContent = calories[language];
+            document.querySelector('.components p').textContent = components[language];
+            document.querySelector('.allergies p').textContent = allergies[language];
+            document.querySelector('.history p').textContent = history[language];
+            document.querySelector('.serving p').textContent = serving[language];
         }
     </script>
 </head>
 <body>
-
     <div class="container">
         <header>
-            <img class="logo" src="https://www.seabelhotels.com/wp-content/uploads/2021/12/Logo_slide_rym_beach.png" alt="Seabel Rym Beach Hotel Logo">
-            <h1>Couscous Royal</h1>
+            <h1 id="dish-name">Keftaji</h1>
             <div class="flags">
-                <img src="https://flagcdn.com/fr.svg" alt="Français" title="Français" onclick="switchLanguage('fr')">
+                <img src="https://flagcdn.com/fr.svg" alt="French" title="Français" onclick="switchLanguage('fr')">
                 <img src="https://flagcdn.com/gb.svg" alt="English" title="English" onclick="switchLanguage('en')">
-                <img src="https://flagcdn.com/es.svg" alt="Español" title="Español" onclick="switchLanguage('es')">
-                <img src="https://flagcdn.com/de.svg" alt="Deutsch" title="Deutsch" onclick="switchLanguage('de')">
-                <img src="https://flagcdn.com/it.svg" alt="Italiano" title="Italiano" onclick="switchLanguage('it')">
-                <img src="https://flagcdn.com/pl.svg" alt="Polski" title="Polski" onclick="switchLanguage('pl')">
-                <img src="https://flagcdn.com/tn.svg" alt="العربية" title="العربية" onclick="switchLanguage('ar')">
+                <img src="https://flagcdn.com/es.svg" alt="Spanish" title="Español" onclick="switchLanguage('es')">
+                <img src="https://flagcdn.com/de.svg" alt="German" title="Deutsch" onclick="switchLanguage('de')">
+                <img src="https://flagcdn.com/it.svg" alt="Italian" title="Italiano" onclick="switchLanguage('it')">
+                <img src="https://flagcdn.com/pl.svg" alt="Polish" title="Polski" onclick="switchLanguage('pl')">
+                <img src="https://flagcdn.com/tn.svg" alt="Arabic" title="العربية" onclick="switchLanguage('ar')">
             </div>
         </header>
 
-
-        <img class="dish-image" src="https://fac.img.pmdstatic.net/fit/~1~fac~2018~07~30~94958cd5-6b38-46a6-a289-bb42cd7e2bd1.jpeg/850x478/quality/90/crop-from/center/couscous-royal-aux-3-viandes.jpeg" alt="Couscous Royal">
+        <img class="dish-image" src="https://i0.wp.com/www.recettesdecuisinedumonde.com/wp-content/uploads/2016/05/DSC04987-1024x686.jpg" alt="Keftaji">
         <div class="overview">
-            <h2>Présentation</h2>
-            <p>Le Couscous Royal est un plat emblématique d'Afrique du Nord, composé de semoule de blé accompagnée de viandes variées, de légumes et d'épices.</p>
+            <h2>Aperçu</h2>
+            <p id="overview">Le Keftaji est un plat composé principalement de légumes, épicé et pimenté. Les légumes sont cuits un à un en friture, puis mélangés ensemble et assaisonnés d’harissa et de kerouia (carvi moulu). Ce plat peut être servi comme garniture d’une viande grillée ou de saucisses, traditionnellement du foie ou des merguez.</p>
         </div>
 
         <div class="calories">
             <h2>Calories</h2>
-            <p>Environ 400 calories par portion.</p>
+            <p id="calories">Environ 400 calories par portion...</p>
         </div>
 
         <div class="components">
             <h2>Composants principaux</h2>
-            <p>Semoule de blé, agneau, poulet, merguez, courgettes, carottes, pois chiches, épices (cumin, curcuma, paprika).</p>
+            <p id="components">Composants principaux : légumes variés, harissa, kerouia, assaisonnements.</p>
         </div>
 
         <div class="allergies">
             <h2>Allergènes</h2>
-            <p>Contient du gluten et peut contenir des traces de fruits à coque.</p>
+            <p id="allergies">Allergènes : Contient des traces de gluten, peut contenir des noix.</p>
         </div>
 
         <div class="history">
             <h2>Histoire</h2>
-            <p>Originaire d'Afrique du Nord, le couscous est un plat ancien qui symbolise le partage et la convivialité.</p>
+            <p id="history">Le Keftaji est un plat populaire en Tunisie, souvent préparé lors des grandes occasions et des fêtes.</p>
         </div>
 
         <div class="serving">
             <h2>Présentation</h2>
-            <p>Le Couscous Royal se sert avec une sauce épicée à base de tomate et un bol de bouillon chaud.</p>
+            <p id="serving">Le Keftaji est généralement servi chaud avec du pain et une sauce piquante.</p>
         </div>
 
         <div class="back-to-top">
             <a href="#">Retour en haut</a>
         </div>
-
-<p style="text-align: center; font-size: 12px;">&copy; 2025 Seabel Rym Beach Hotel. Tous droits réservés.</p>
+        <p style="text-align: center; font-size: 12px;">&copy; 2025 Seabel Rym Beach Hotel. Tous droits réservés.</p>
     </div>
-        <img class="logo" src="https://www.seabelhotels.com/wp-content/uploads/2021/12/Logo_slide_rym_beach.png" alt="Seabel Rym Beach Hotel Logo">
-        </div>
-
-
-
 </body>
 </html>
